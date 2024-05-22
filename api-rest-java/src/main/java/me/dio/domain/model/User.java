@@ -1,17 +1,12 @@
-package bootcampsatander.domain.model;
-import java.util.List;
+package me.dio.domain.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity(name = "tb_user")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,7 +15,7 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Account account;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
     private Card card;
 
@@ -77,4 +72,5 @@ public class User {
     public void setNews(List<News> news) {
         this.news = news;
     }
+
 }
